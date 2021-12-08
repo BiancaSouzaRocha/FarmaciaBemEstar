@@ -35,6 +35,14 @@ public class Categoria {
 	@JsonIgnoreProperties("categoriaFarmacia")
 	private List<Produto> produtoFarmacia = new ArrayList<>();
 
+	public List<Produto> getProdutoFarmacia() {
+		return produtoFarmacia;
+	}
+
+	public void setProdutoFarmacia(List<Produto> produtoFarmacia) {
+		this.produtoFarmacia = produtoFarmacia;
+	}
+
 	public long getIdCategoria() {
 		return idCategoria;
 	}

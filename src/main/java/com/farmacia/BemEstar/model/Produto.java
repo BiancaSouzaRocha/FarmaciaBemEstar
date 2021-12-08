@@ -13,6 +13,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @Table (name= "tb_produto")
@@ -33,10 +35,21 @@ public class Produto {
 	
 	@ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "fk_categoria")
+	@JsonIgnoreProperties ("produtoFarmacia")
 	private Categoria categoriaFarmacia;
-	
+
+
 	@NotNull
 	private double preco;
+
+	
+	public Categoria getCategoriaFarmacia() {
+		return categoriaFarmacia;
+	}
+
+	public void setCategoriaFarmacia(Categoria categoriaFarmacia) {
+		this.categoriaFarmacia = categoriaFarmacia;
+	}
 
 	public long getId() {
 		return id;
