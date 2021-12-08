@@ -12,6 +12,5 @@ public interface CategoriaRepository extends JpaRepository<Categoria,Long> {
 	public List<Categoria> findAllByNomeCategoriaContainingIgnoreCase(String nomeCategoria);
 	
 	
-	
 
 }
