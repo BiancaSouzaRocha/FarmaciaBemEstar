@@ -1,9 +1,13 @@
 package com.farmacia.BemEstar.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -26,6 +30,10 @@ public class Produto {
 	@NotBlank
 	@Size (min=10, max=100)
 	private String descricaoProduto;
+	
+	@ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "fk_categoria")
+	private Categoria categoriaFarmacia;
 	
 	@NotNull
 	private double preco;
